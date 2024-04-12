@@ -36,12 +36,12 @@
   <li>Repository Design Pattern</li>
   <li>Dependency Injection</li>
 </ul>
-![Ekran görüntüsü 2024-04-12 184106](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/68764762-c9db-4964-9433-2b2048c0bccf)
-![Ekran görüntüsü 2024-04-12 184044](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/81e7445b-8584-427c-b837-49eedce57bd9)
-![Ekran görüntüsü 2024-04-12 183953](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/59dc54b7-4746-4419-b33d-a4112f5dc5f4)
-![Ekran görüntüsü 2024-04-12 183858](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/fa82a406-0b8b-4466-ba85-4e3af94b47ff)
-![Ekran görüntüsü 2024-04-12 183831](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/ea66ce22-5c7a-4cda-9190-1b0fc508f2e2)
-![Ekran görüntüsü 2024-04-12 184634](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/91ccfebd-8917-4ef5-8423-ebb75a4fbb44)
-![Ekran görüntüsü 2024-04-12 184603](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/5400a09c-06d8-4ddd-9caa-bc5dbea3e646)
-![Ekran görüntüsü 2024-04-12 184518](https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/eee31406-3735-4bcc-82e6-e6fdbc66b424)
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/413543d6-1c6d-4a55-a3ce-b6080f1772e9"/>
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/cc937e3f-b51c-4753-ad21-feebb97b9bd3"/>
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/4b48ef46-b08f-49e4-8408-b7d6057e2511"/>
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/810db42a-5e58-4c6d-8742-a82b2dbb3472" />
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/92d93704-8456-4b2c-8ae3-deaf3c4c52bf" />
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/6711f85d-c90c-4373-9834-5abdbb2943ea" />
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/2750d269-794d-4132-ba4f-1ec53f90b9ac" />
+<img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/cd21ab5d-673d-49bd-98c4-79e43ac8bac8" />
 
