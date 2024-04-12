@@ -1,0 +1,61 @@
+﻿@model GetArticleByIdDto
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/BlogImages/@Model.CoverImageUrl');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-6">
+                <div class="post-entry text-center">
+                    <h1 class="mb-4">@Model.Title</h1>
+                    <div class="post-meta align-items-center text-center">
+                        <figure class="author-figure mb-0 me-3 d-inline-block"><img src="~/UserImage/@Model.UserImageUrl" alt="Image" class="img-fluid"></figure>
+                        <span class="d-inline-block mt-1">By @Model.NameSurname</span>
+                        <span>@Model.CreatedDate.ToString("dd-MM-yyyy")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="container">
+        <div class="row blog-entries element-animate">
+            <div class="col-md-12 col-lg-8 main-content">
+                <div class="post-content-body">
+                   @Html.Raw(Model.Content)
+                </div>
+                <div class="pt-5">
+                    <p>Kategori:  <a href="#">@Model.Name</a> Taglar: <a href="#">Burası Yapılacak</a></p>
+                </div>
+                <div class="pt-5 comment-wrap">
+                    @await Component.InvokeAsync("_CommentListComponent")
+                    @await Component.InvokeAsync("_CommentComponent",Model.ArticleID)
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 sidebar">
+                <div class="sidebar-box">
+                    <div class="bio text-center">
+                        <img src="~/UserImage/@Model.UserImageUrl" alt="User Image" class="img-fluid mb-3">
+                        <div class="bio-body">
+                            <h2>@Model.NameSurname</h2>
+                            <p class="mb-4">@Model.UserDescription</p>
+                            
+                            <p class="social">
+                                <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("_BlogsLast3PostComponent")
+                @await Component.InvokeAsync("_CategoriesCountComponent")
+                @await Component.InvokeAsync("_TagsComponent")
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+﻿@model List<ResultSocialMediaDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Sosyal Medya</h4>
+				<p class="card-description">
+					Sosyal Medya ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Platform</th>
+							<th>Icon</th>
+							<th>Url</th>
+							<th>Sil</th>
+							<th>Düzenle</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.Platform</td>
+								<td>@item.Icon</td>
+								<td>@item.Url</td>
+								<td><a href="/Admin/SocialMedia/RemoveSocialMedia/@item.SocialMediaID" class="btn btn-outline-danger">Sil</a></td>
+								<td><a href="/Admin/SocialMedia/UpdateSocialMedia/@item.SocialMediaID" class="btn btn-outline-warning">Güncelle</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<a href="/Admin/SocialMedia/CreateSocialMedia" class="btn btn-outline-primary">Yeni Sosyal Medya Hesabı Ekle</a>
+				
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+﻿<footer class="site-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="widget">
+					<h3 class="mb-4">Hakkımızda</h3>
+					<p>@ViewBag.about</p>
+				</div> <!-- /.widget -->
+				@await Component.InvokeAsync("_FooterSocialMediaComponent")
+			</div> <!-- /.col-lg-4 -->
+			<div class="col-lg-4 ps-lg-5">
+				<div class="widget">
+					<h3 class="mb-4">Hızlı Linkler</h3>
+					<ul class="list-unstyled float-start links">
+						<li><a href="/About/Index">Hakkımızda</a></li>
+						<li><a href="/Contact/Index">İletişim</a></li>
+						<li><a href="/Blogs/Index">Bloglar</a></li>
+						<li><a href="#">SSS</a></li>
+						<li><a href="#">Güvenlik</a></li>
+					</ul>
+					<ul class="list-unstyled float-start links">
+						<li><a href="/Category/Index/1">Teknoloji</a></li>
+						<li><a href="/Category/Index/5">Sağlık</a></li>
+						<li><a href="/Category/Index/2">Spor</a></li>
+						<li><a href="/Category/Index/3">Oyun</a></li>
+						<li><a href="/Category/Index/4">Sinema Film</a></li>
+					</ul>
+				</div> 
+			</div> 
+			@await Component.InvokeAsync("_FooterLast3BlogComponent")
+		</div> 
+		<div class="row mt-5">
+			<div class="col-12 text-center">
+				<p>
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Tüm Hakları Saklıdır. &mdash; Designed by <a href="https://untree.co">Ensar SARAÇ</a> 
+				</p>
+			</div>
+		</div>
+	</div> 
+</footer>

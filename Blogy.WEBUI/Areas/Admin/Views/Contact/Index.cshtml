@@ -1,0 +1,48 @@
+﻿@model List<ResultContactList>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">İletişim</h4>
+				<p class="card-description">
+					İletişim ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Lokasyon</th>
+							<th>Çalışma Saatleri</th>
+							<th>Email</th>
+							<th>Telefon</th>
+							<th>Sil</th>
+							<th>Düzenle</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.Location</td>
+								<td>@item.OpenHours</td>
+								<td>@item.Email</td>
+								<td>@item.Call</td>
+								<td><a href="/Admin/Contact/RemoveContact/@item.ContactInfoID" class="btn btn-outline-danger">Sil</a></td>
+								<td><a href="/Admin/Contact/UpdateContact/@item.ContactInfoID" class="btn btn-outline-warning">Güncelle</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<a href="/Admin/Contact/CreateContact" class="btn btn-outline-primary">Yeni İletişim Bilgileri Ekle</a>
+				
+			</div>
+		</div>
+	</div>
+</div>

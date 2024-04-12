@@ -1,0 +1,48 @@
+﻿@model List<GetArticleDto>
+
+<section class="section">
+	<div class="container">
+
+		<div class="row mb-4">
+			<div class="col-sm-6">
+				<h2 class="posts-entry-title">SON TEKNOLOJİ HABERLERİ</h2>
+			</div>
+			<div class="col-sm-6 text-sm-end"><a href="/Category/Index/@Model[0].CategoryID" class="read-more">Tümünü Gör</a></div>
+		</div>
+
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				<div class="col-lg-4 mb-4">
+					<div class="post-entry-alt">
+						<a href="/Blogs/BlogDetails/@item.Id" class="img-link"><img src="~/BlogImages/@item.ImageUrl" alt="Image" style="height:250px;" class="img-fluid"></a>
+						<div class="excerpt">
+
+
+							<h2><a href="/Blogs/BlogDetails/@item.Id">@item.Title</a></h2>
+							<div class="post-meta align-items-center text-left clearfix">
+								<figure class="author-figure mb-0 me-3 float-start"><img src="~/UserImage/@item.UserImageUrl" alt="Image" class="img-fluid"></figure>
+								<span class="d-inline-block mt-1"> <a href="/Blogs/BlogDetails/@item.Id">@item.NameSurname</a></span>
+								<span>@item.Date.ToString("dd-MM-yyyy")</span>
+							</div>
+
+							@if(item.Content.Length  < 100)
+							{
+								@Html.Raw(item.Content)
+							}
+							else
+							{
+								<p>@item.Content.Substring(0,100) ...</p>
+							}
+							<p><a href="/Blogs/BlogDetails/@item.Id" class="read-more">Devamını Oku</a></p>
+						</div>
+					</div>
+				</div>
+			}
+			
+			
+		</div>
+
+	</div>
+</section>
+<hr />

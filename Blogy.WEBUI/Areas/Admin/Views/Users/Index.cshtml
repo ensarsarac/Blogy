@@ -1,0 +1,43 @@
+﻿@model List<ResultAppUserDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Kullanıcılar</h4>
+				<p class="card-description">
+					Kullanıcılar ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Ad Soyad</th>
+							<th>Email</th>
+							<th>Kullanıcı Adı</th>
+							<th>Blokla</th>
+							<th>Rol Ata</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>@item.Id</td>
+								<td><img src="~/UserImage/@item.ImageUrl" class="img-thumbnail rounded-pill"/> @item.Name @item.Surname</td>
+								<td>@item.Email</td>
+								<td>@item.UserName</td>
+								<td><a href="/Admin/Categories/RemoveCategory/@item.Id" class="btn btn-outline-danger">Blokla</a></td>
+								<td><a href="/Admin/Categories/RemoveCategory/@item.Id" class="btn btn-outline-info">Rol Ata</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+</div>

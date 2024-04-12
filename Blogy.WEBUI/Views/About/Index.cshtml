@@ -1,0 +1,131 @@
+﻿@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/blogy-1.0.0/images/hero_5.jpg');">
+	<div class="container">
+		<div class="row same-height justify-content-center">
+			<div class="col-md-6">
+				<div class="post-entry text-center">
+					<h1 class="mb-4">Hakkımızda</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@foreach (var item in Model)
+{
+	<div class="section sec-halfs py-0">
+		<div class="container">
+			<div class="half-content d-lg-flex align-items-stretch">
+				<div class="img" style="background-image: url('@item.ImageUrl1')" data-aos="fade-in" data-aos-delay="100">
+				</div>
+				<div class="text">
+					<h2 class="heading text-primary mb-3">@item.Title1</h2>
+					<p class="mb-4">@item.Description1</p>
+				</div>
+			</div>
+
+			<div class="half-content d-lg-flex align-items-stretch">
+				<div class="img order-md-2" style="background-image: url('@item.ImageUrl2')" data-aos="fade-in">
+				</div>
+				<div class="text">
+					<h2 class="heading text-primary mb-3">@item.Title2</h2>
+					<p class="mb-4">@item.Description2</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	
+}
+
+<div class="section sec-features">
+	<div class="container">
+		<div class="row g-5">
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+				<div class="feature d-flex">
+					<span class="bi-bag-check-fill"></span>
+					<div>
+						<h3>Bilgiyi Yaymak</h3>
+						<p>Misyonumuz, bilgiyi yayarak insanların yaşamlarını zenginleştirmektir. Blogy olarak, herkesin erişebileceği ve anlayabileceği içerikler oluşturarak bilgiye erişimi kolaylaştırıyoruz. </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+				<div class="feature d-flex">
+					<span class="bi-wallet-fill"></span>
+					<div>
+						<h3>Topluluğu Bir Araya Getirmek</h3>
+						<p>Misyonumuz, insanları bir araya getirerek paylaşılan deneyimlerle birbirlerini desteklemektir. Blogy olarak, çeşitli konularda tutkulu insanları bir araya getiriyor ve bilgi, deneyim ve ilham paylaşımını teşvik ediyoruz. </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+				<div class="feature d-flex">
+					<span class="bi-pie-chart-fill"></span>
+					<div>
+						<h3> İlham Vermek</h3>
+						<p>Misyonumuz, insanlara ilham vererek potansiyellerini keşfetmelerini sağlamaktır. [Sitenizin Adı] olarak, motivasyon ve ilham dolu içerikler sunarak okuyucularımızın kendilerini geliştirmelerine yardımcı oluyoruz. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+
+		<div class="row mb-5">
+			<div class="col-lg-5 mx-auto text-center" data-aos="fade-up">
+				<h2 class="heading text-primary">Our Team</h2>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="0">
+				<img src="/blogy-1.0.0/images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">James Griffin</h5>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="100">
+				<img src="/blogy-1.0.0/images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">Claire Smith</h5>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="200">
+				<img src="/blogy-1.0.0/images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">Jessica Wilson</h5>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="0">
+				<img src="/blogy-1.0.0/images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">William Anderson</h5>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="100">
+				<img src="/blogy-1.0.0/images/person_5.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">Julie Harvey</h5>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="200">
+				<img src="/blogy-1.0.0/images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">Shana Clarkson</h5>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+						

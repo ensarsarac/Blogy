@@ -1,0 +1,55 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<GetCategoryListByIdDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<div class="section search-result-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="heading">Kategori: @ViewBag.category.Name</div>
+			</div>
+		</div>
+		<div class="row posts-entry">
+			<div class="col-lg-8">
+				@foreach (var item in Model)
+				{
+					<div class="blog-entry d-flex blog-entry-search-item">
+						<a href="/Blogs/BlogDetails/@item.ArticleID" class="img-link me-4">
+							<img src="~/BlogImages/@item.CoverImageUrl" alt="Image" class="img-fluid">
+						</a>
+						<div>
+							<span class="date">@item.CreatedDate.ToString("dd-MM-yyyy") <a href="#">@item.CategoryName</a></span>
+							<h2><a href="/Blogs/BlogDetails/@item.ArticleID">@item.Title</a></h2>
+							@if(item.Content.Length < 100)
+							{
+								<p><a href="/Blogs/BlogDetails/@item.ArticleID">@item.Content</a></p>
+							}
+							else
+							{
+								<p><a href="/Blogs/BlogDetails/@item.ArticleID">@item.Content.Substring(0, 100)</a></p>
+							}
+							<p><a href="/Blogs/BlogDetails/@item.ArticleID" class="btn btn-sm btn-outline-primary">Daha Fazlası</a></p>
+						</div>
+					</div>
+				}
+				<div class="col-lg-12">
+					@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new X.PagedList.Web.Common.PagedListRenderOptionsBase
+{
+	ContainerDivClasses = new[] { "navigation" },
+	LiElementClasses = new[] { "page-item" },
+	PageClasses = new[] { "page-link" },
+})
+				</div>
+			</div>
+			<div class="col-lg-4 sidebar">
+				@await Component.InvokeAsync("_BlogsLast3PostComponent")
+				@await Component.InvokeAsync("_CategoriesCountComponent")
+				@await Component.InvokeAsync("_TagsComponent")
+			</div>
+		</div>
+	</div>
+</div>

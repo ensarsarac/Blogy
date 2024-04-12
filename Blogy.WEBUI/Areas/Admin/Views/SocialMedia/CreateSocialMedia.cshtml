@@ -1,0 +1,35 @@
+﻿@model CreateSocialMediaDto
+@{
+    ViewData["Title"] = "CreateSocialMedia";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Yeni Sosyal Medya Hesabı Ekle</h4>
+				<p class="card-description"> Sosyal Medya ile ilgili ekleme işlemini buradan gerçekleştirebilirsiniz. </p>
+				<form class="forms-sample" method="post">
+					<div class="form-group">
+						<label>Platform</label>
+						<input type="text" class="form-control" name="Platform" placeholder="Platform">
+						<span asp-validation-for="@Model.Platform" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Icon</label>
+						<input type="text" class="form-control" name="Icon" placeholder="Icon">
+						<span asp-validation-for="@Model.Icon" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Url</label>
+						<input type="text" class="form-control" name="Url" placeholder="Url">
+						<span asp-validation-for="@Model.Url" style="color:red;"></span>
+					</div>
+					
+					<button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+					<a href="/Admin/SocialMedia/Index" class="btn btn-light">İptal Et</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,103 @@
+﻿@model Blogy.EntityLayer.Concrete.AppUser
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                    <img src="~/UserImage/@Model.ImageUrl" style="width:50px;height:50px;" alt="profile">
+                    <span class="login-status online"></span>
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                    <span class="font-weight-bold mb-2">@Model.Name @Model.Surname</span>
+                    <span class="text-secondary text-small">Admin</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Dashboard/Index">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/MyProfile/Index">
+                <span class="menu-title">Profilim</span>
+                <i class="mdi menu-icon mdi-face-profile"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Blogs/BlogList">
+                <span class="menu-title">Bloglar</span>
+                <i class="mdi menu-icon mdi-blogger"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Categories/Index/">
+                <span class="menu-title">Kategoriler</span>
+                <i class="mdi menu-icon mdi-google-pages"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/About/Index">
+                <span class="menu-title">Hakkımızda Alanı</span>
+                <i class="mdi menu-icon mdi-information"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Contact/Index">
+                <span class="menu-title">İletişim</span>
+                <i class="mdi menu-icon mdi-phone"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <span class="menu-title">Kullanıcılar</span>
+                <i class="mdi menu-icon mdi-account-multiple"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/SendMessage/Index">
+                <span class="menu-title">Mesajlar</span>
+                <i class="mdi menu-icon mdi-facebook-messenger"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Report/Index">
+                <span class="menu-title">Raporlar</span>
+                <i class="mdi menu-icon mdi-book-open-page-variant"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <span class="menu-title">Role İşlemleri</span>
+                <i class="mdi menu-icon mdi-brush"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/SocialMedia/Index">
+                <span class="menu-title">Sosyal Medya</span>
+                <i class="mdi menu-icon mdi-headphones-settings"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/MyProfile/Index">
+                <span class="menu-title">Ayarlar</span>
+                <i class="mdi menu-icon mdi-settings"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Default/Index">
+                <span class="menu-title">Siteye Dön</span>
+                <i class="mdi menu-icon mdi-backburger"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Login/LogOut">
+                <span class="menu-title">Çıkış Yap</span>
+                <i class="mdi menu-icon mdi-logout-variant"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

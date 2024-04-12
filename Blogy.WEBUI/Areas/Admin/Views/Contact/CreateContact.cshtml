@@ -1,0 +1,41 @@
+﻿@model CreateContactDto
+@{
+    ViewData["Title"] = "CreateContact";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Yeni İletişim Bilgileri Ekle</h4>
+				<p class="card-description"> İletişim bilgileri ile ilgili ekleme işlemini buradan gerçekleştirebilirsiniz. </p>
+				<form class="forms-sample" method="post">
+					<div class="form-group">
+						<label>Lokasyon</label>
+						<input type="text" class="form-control" name="Location" placeholder="Lokasyon">
+						<span asp-validation-for="@Model.Location" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Lokasyon</label>
+						<input type="text" class="form-control" name="OpenHours" placeholder="Çalışma Saatleri">
+						<span asp-validation-for="@Model.OpenHours" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Lokasyon</label>
+						<input type="text" class="form-control" name="Email" placeholder="Email">
+						<span asp-validation-for="@Model.Email" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Lokasyon</label>
+						<input type="text" class="form-control" name="Call" placeholder="Telefon Numarası">
+						<span asp-validation-for="@Model.Call" style="color:red;"></span>
+					</div>
+					<button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+					<a href="/Admin/Contact/Index" class="btn btn-light">İptal Et</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

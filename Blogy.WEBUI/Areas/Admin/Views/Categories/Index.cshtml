@@ -1,0 +1,64 @@
+﻿@model List<GetCategoryList>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Kategoriler</h4>
+				<p class="card-description">
+					Kategoriler ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Kategori</th>
+							<th>Sil</th>
+							<th>Düzenle</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.Name</td>
+								<td><a href="/Admin/Categories/RemoveCategory/@item.CategoryID" class="btn btn-outline-danger">Sil</a></td>
+								<td><a href="/Admin/Categories/UpdateCategory/@item.CategoryID"  class="btn btn-outline-warning">Güncelle</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<button type="button" data-toggle="modal" data-target="#Modal1" class="btn btn-outline-primary">Yeni Kategori Ekle</button>
+				<div class="modal" id="Modal1" tabindex="-1">
+					<div class="modal-dialog">
+						<form method="post" action="/Admin/Categories/CreateCategory">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Kategori Girişi</h5>
+								<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label> Kategori Adı </label>
+									<input type="text" class="form-control" name="Name"/>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+								<button type="submit" class="btn btn-primary">Kaydet</button>
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model List<CategoryNameAndCountDto>
+<div class="sidebar-box">
+    <h3 class="heading">Kategoriler</h3>
+    <ul class="categories">
+        @foreach (var item in Model)
+        {
+            <li><a href="/Category/Index/@item.CategoryID">@item.Name <span>(@item.Count)</span></a></li>
+
+        }
+        
+    </ul>
+</div>

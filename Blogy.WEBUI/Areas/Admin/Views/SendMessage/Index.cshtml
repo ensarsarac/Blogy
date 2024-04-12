@@ -1,0 +1,76 @@
+﻿@model List<ResultSendMessageDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Gönderilen Mesajlar</h4>
+				<p class="card-description">
+					Mesajlar ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Ad Soyad</th>
+							<th>Email</th>
+							<th>Konu</th>
+							<th>Message</th>
+							<th>Sil</th>
+							<th>Detaylar</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.NameSurname</td>
+								<td>@item.Email</td>
+								<td>@item.Subject</td>
+								@if(item.Message.Length > 50)
+								{
+									<td>@item.Message.Substring(0,50) ...</td>
+								}else{
+									<td>@item.Message</td>
+								}
+								<td><a href="/Admin/SendMessage/RemoveSendMessage/@item.SendMessageID" class="btn btn-outline-danger">Sil</a></td>
+								<td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#Modal1-@item.SendMessageID">Detaylar</button></td>
+							</tr>
+							<div class="modal" id="Modal1-@item.SendMessageID" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">Mesaj Detayları</h5>
+											<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="form-group">
+												<p><b>Ad Soyad: </b>@item.NameSurname</p>
+												<hr />
+												<p><b>Email: </b>@item.Email</p>
+												<hr />
+												<p><b>Konu: </b>@item.Subject</p>
+												<hr />
+												<p><b>Mesaj: </b>@item.Message</p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+</div>

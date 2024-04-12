@@ -1,0 +1,50 @@
+﻿@model UpdateAboutDto
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Hakkımızda Bilgileri Güncelle</h4>
+				<p class="card-description"> Hakkımızda bilgileri ile ilgili güncelleme işlemini buradan gerçekleştirebilirsiniz. </p>
+				<form class="forms-sample" method="post">
+					<input type="hidden" asp-for="@Model.AboutID" />
+					<div class="form-group">
+						<label>Başlık 1</label>
+						<input type="text" class="form-control" asp-for="@Model.Title1" placeholder="Başlık 1">
+						<span asp-validation-for="@Model.Title1" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Başlık 2</label>
+						<input type="text" class="form-control" asp-for="@Model.Title2" placeholder="Başlık 2">
+						<span asp-validation-for="@Model.Title2" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Görsel 1</label>
+						<input type="text" class="form-control" asp-for="@Model.ImageUrl1" placeholder="Görsel 1 Dosya Yolu">
+						<span asp-validation-for="@Model.ImageUrl1" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Görsel 2</label>
+						<input type="text" class="form-control" asp-for="@Model.ImageUrl2" placeholder="Görsel 2 Dosya Yolu">
+						<span asp-validation-for="@Model.ImageUrl2" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Açıklama 1</label>
+						<textarea type="text" class="form-control" cols="5" rows="7" asp-for="@Model.Description1" placeholder="Açıklama 1"></textarea>
+						<span asp-validation-for="@Model.Description1" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Açıklama 2</label>
+						<textarea type="text" class="form-control" cols="5" rows="7" asp-for="@Model.Description2" placeholder="Açıklama 2"></textarea>
+						<span asp-validation-for="@Model.Description2" style="color:red;"></span>
+					</div>
+					<button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+					<a href="/Admin/About/Index" class="btn btn-light">İptal Et</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

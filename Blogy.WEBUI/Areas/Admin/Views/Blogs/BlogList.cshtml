@@ -1,0 +1,100 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Blogy.EntityLayer.Concrete.Article>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Bloglar</h4>
+				<p class="card-description">Bloglar ile ilgili işlemleri buradan gerçekleştirebilirsiniz.</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Blog Başlığı</th>
+							<th>Tarih</th>
+							<th>Kategori</th>
+							<th>Oluşturan Yazar</th>
+							<th>Blog Durumu</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+							<th>Detaylar</th>
+							<th>Sitede Gör</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								@if (item.Title.Length > 20)
+								{
+									<td>@item.Title.Substring(0, 20) ...</td>
+								}
+								else
+								{
+									<td>@item.Title</td>
+								}
+								<td>@item.CreatedDate</td>
+								<td>@item.Category.Name</td>
+								<td>@item.AppUser.Name @item.AppUser.Surname</td>
+								@if (item.Status)
+								{
+									<td><span class="badge badge-success">Aktif</span></td>
+								}
+								else
+								{
+									<td><span class="badge badge-danger">Pasif</span></td>
+								}
+								<td><a href="/Admin/Blogs/RemoveBlog/@item.ArticleID" class="btn btn-outline-danger">Sil</a></td>
+								<td><a href="/Admin/Blogs/UpdateBlog/@item.ArticleID" class="btn btn-outline-warning">Güncelle</a></td>
+								<td><button type="button" data-toggle="modal" data-target="#Modal1-@item.ArticleID" class="btn btn-outline-info">Detaylar</button></td>
+								<td><a href="/Blogs/BlogDetails/@item.ArticleID" class="btn btn-outline-dark">Sitede Gör</a></td>
+							</tr>
+
+							<div class="modal" id="Modal1-@item.ArticleID" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">@item.Title</h5>
+											<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<p>@item.Content</p>
+											<hr />
+											<p>@item.CreatedDate</p>
+											<hr />
+											<p>@item.Category.Name</p>
+											<hr />
+											<p>@item.AppUser.Name @item.AppUser.Surname</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						}
+						<tr>
+							<td>@Html.PagedListPager((IPagedList)Model, page => Url.Action("BlogList" ,new { page}),new X.PagedList.Web.Common.PagedListRenderOptionsBase{
+														ContainerDivClasses = new[] { "navigation" },
+														LiElementClasses = new[] { "page-item" },
+														PageClasses = new[] { "page-link" },
+							}) </td>
+						</tr>
+					</tbody>
+					 
+				</table>
+					
+				<a href="/Admin/Blogs/CreateBlog" class="btn btn-outline-primary">Yeni Blog Oluştur</a>
+			</div>
+		</div>
+	</div>
+</div>

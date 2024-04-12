@@ -1,0 +1,10 @@
+﻿@model List<GetTagDto>
+<div class="sidebar-box">
+    <h3 class="heading">Taglar</h3>
+    <ul class="tags">
+        @foreach (var item in Model)
+        {
+            <li><a href="#">@item.TagTitle</a></li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,38 @@
+﻿@model AdminArticleGetById
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Blog Güncelle</h4>
+                <p class="card-description"> Blog güncellemek için aşağıda ki bilgileri doldurun. </p>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="@Model.Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label>Blog Başlığı</label>
+                        <input type="text" class="form-control" value="@Model.Title" name="Title" placeholder="Blog Başlığı">
+                    </div>
+                    <div class="form-group">
+                        <label>Blog İçeriği</label>
+                        <textarea name="Description" class="form-control" rows="10" cols="10">@Model.Description</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        @Html.DropDownListFor(x => x.CategoryId, (SelectList)ViewBag.values, "Kategori Seçiniz", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Görsel Seçiniz</label>
+                        <input type="file" class="form-control" value="@Model.ImageUrl" name="ImageUrl" placeholder="Blog Görseli">
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                    <a href="/Admin/Blogs/BlogList" class="btn btn-light">İptal Et</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

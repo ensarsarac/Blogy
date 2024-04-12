@@ -1,0 +1,63 @@
+﻿@model Blogy.DTOLayer.BlogDtos.CreateBlogDto
+@{
+    ViewData["Title"] = "CreateBlog";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script src="~/tinymce/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea#tiny',
+        width:1450,
+        height:300,
+                        plugins: [
+            'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'markdown',
+            'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+            'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' + 'bullist numlist checklist outdent indent | removeformat | code table help',
+
+        menu: {
+            favs: { title: 'menu', items: 'code visualaid | searchreplace | emoticons' }
+        },
+        menubar: 'favs file edit insert format tools table',
+        content_style: 'body{font-family:Helvetica,Arial,sans-serif;font-size:16px}'
+    });
+</script>
+
+<div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Blog Paylaş</h4>
+                    <p class="card-description"> Blog paylaşmak için aşağıda ki bilgileri doldurun. </p>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+                      <div class="form-group">
+                        <label >Blog Başlığı</label>
+                        <input type="text" class="form-control" name="Title" placeholder="Blog Başlığı">
+                        @Html.ValidationMessageFor(x=>x.Title,"",new {@class="text-danger"})
+                      </div>
+                    <div class="form-group">
+                        <label>Blog İçeriği</label>
+                        <textarea id="tiny" name="Content" class="form-control"></textarea>
+                        @Html.ValidationMessageFor(x => x.Content, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        @Html.DropDownListFor(x=>x.CategoryID,(SelectList)ViewBag.values,"Kategori Seçiniz",new {@class="form-control"})
+                        @Html.ValidationMessageFor(x => x.CategoryID, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Görsel Seçiniz</label>
+                        <input type="file" class="form-control" name="ImageUrl" placeholder="Blog Görseli">
+                        @Html.ValidationMessageFor(x => x.CategoryID, "", new { @class = "text-danger" })
+                    </div>
+                      <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                    <a href="/Admin/Blogs/BlogList" class="btn btn-light">İptal Et</a>
+                    </form>
+                  </div>
+                </div>
+              </div>              
+            </div>

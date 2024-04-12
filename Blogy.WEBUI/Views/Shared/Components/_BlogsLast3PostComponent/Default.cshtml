@@ -1,0 +1,25 @@
+﻿@model List<Last3BlogDto>
+<div class="sidebar-box">
+    <h3 class="heading">Son 3 Blog</h3>
+    <div class="post-entry-sidebar">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="/Blogs/BlogDetails/@item.ArticleID">
+                        <img src="~/BlogImages/@item.CoverImageUrl" alt="Image placeholder" class="me-4 rounded">
+                        <div class="text">
+                            <h4>@item.Title</h4>
+                            <div class="post-meta">
+                                <span class="mr-2">@item.CreatedDate.ToString("dd-MM-yyyy") </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+            
+            
+            
+        </ul>
+    </div>
+</div>

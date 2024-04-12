@@ -1,0 +1,47 @@
+﻿
+<div id="commentlist"></div>
+<div id="nocomment"></div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+
+		$.ajax({
+			url: "/Blogs/GetCommentList/",
+			contentType: "application/json",
+			dataType: "json",
+			type: "get",
+			success: function (func) {
+				let value = jQuery.parseJSON(func)
+				if (value.length > 0) {
+					let ul = `<ul class="comment-list">`;
+					console.log(value);
+					$.each(value, (index, item) => {
+						ul += `<li class="comment">
+						<div class="vcard">
+								<img src="/UserImage/${item.UserImage}" alt="Image placeholder">
+						</div>
+						<div class="comment-body">
+										<h3>${item.UserNameSurname}</h3>
+									<div class="meta">${item.Date}</div>
+									<p>${item.Message}</p>
+						</div>
+					</li>`;
+						console.log("user image : " + item.UserImage);
+					});
+					ul += `</ul>`;
+
+					$("#commentlist").html(ul);
+				}
+				else {
+					$("#nocomment").html(`<h3>Bu bloğa henüz yorum yapılmadı</h3>`);
+				}
+			}
+		});
+
+	});
+
+</script>

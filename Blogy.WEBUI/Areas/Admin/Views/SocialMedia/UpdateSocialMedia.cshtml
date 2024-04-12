@@ -1,0 +1,37 @@
+﻿@model UpdateSocialMediaDto
+@{
+    ViewData["Title"] = "UpdateSocialMedia";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Sosyal Medya Hesabı Güncelle</h4>
+				<p class="card-description"> Sosyal Medya ile ilgili güncelleme işlemini buradan gerçekleştirebilirsiniz. </p>
+				<form class="forms-sample" method="post">
+					<input type="hidden" asp-for="@Model.SocialMediaID" />
+					<div class="form-group">
+						<label>Platform</label>
+						<input type="text" class="form-control" asp-for="@Model.Platform" placeholder="Platform">
+						<span asp-validation-for="@Model.Platform" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Icon</label>
+						<input type="text" class="form-control" asp-for="@Model.Icon" placeholder="Icon">
+						<span asp-validation-for="@Model.Icon" style="color:red;"></span>
+					</div>
+					<div class="form-group">
+						<label>Url</label>
+						<input type="text" class="form-control" asp-for="@Model.Url" placeholder="Url">
+						<span asp-validation-for="@Model.Url" style="color:red;"></span>
+					</div>
+
+					<button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+					<a href="/Admin/SocialMedia/Index" class="btn btn-light">İptal Et</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

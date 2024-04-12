@@ -1,0 +1,77 @@
+﻿@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Hakkımızda</h4>
+				<p class="card-description">
+					Hakkımızda ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Başlık 1</th>
+							<th>Açıklama 1</th>
+							<th>Başlık 2</th>
+							<th>Açıklama 2</th>
+							<th>Sil</th>
+							<th>Düzenle</th>
+							<th>Detaylar</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.Title1</td>
+								<td>@item.Description1.Substring(0,50) ...</td>
+								<td>@item.Title2</td>
+								<td>@item.Description2.Substring(0,50) ...</td>
+								<td><a href="/Admin/About/RemoveAbout/@item.AboutID" class="btn btn-outline-danger">Sil</a></td>
+								<td><a href="/Admin/About/UpdateAbout/@item.AboutID" class="btn btn-outline-warning">Güncelle</a></td>
+								<td><button type="button" data-toggle="modal" data-target="#Modal1-@item.AboutID" class="btn btn-outline-info">Detaylar</button></td>
+							</tr>
+							<div class="modal" id="Modal1-@item.AboutID" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">Hakkımızda Bilgileri</h5>
+											<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<p><b>Başlık 1: </b>@item.Title1</p>
+											<hr />
+											<p><b>Görsel 1: </b>@item.ImageUrl1</p>
+											<hr />
+											<p><b>Açıklama 1: </b>@item.Description1</p>
+											<hr />
+											<p><b>Başlık 2: </b>@item.Title2</p>
+											<hr />
+											<p><b>Görsel 2: </b>@item.ImageUrl2</p>
+											<hr />
+											<p><b>Açıklama 2: </b>@item.Description2</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</tbody>
+				</table>
+				<a href="/Admin/About/CreateAbout" class="btn btn-outline-primary">Yeni Hakkımızda Alanı Ekle</a>
+				
+			</div>
+		</div>
+	</div>
+</div>

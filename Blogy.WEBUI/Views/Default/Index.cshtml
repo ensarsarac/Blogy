@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+@await Component.InvokeAsync("_Last3TechnologyComponent")
+@await Component.InvokeAsync("_Last3SporComponent")
+@await Component.InvokeAsync("_Last3GameComponent")
+@await Component.InvokeAsync("_Last3FilmComponent")
+@await Component.InvokeAsync("_Last3HealthComponent")
+
