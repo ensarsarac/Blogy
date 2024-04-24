@@ -27,7 +27,13 @@ namespace Blogy.BusinessLayer.Concrete
             _uowDal.Save();
         }
 
-        public List<Comment> TGetAllList()
+		public List<Comment> TCommentListByUserId(int userId)
+		{
+			return _commentDal.CommentListByUserId(userId);
+		}
+
+	
+		public List<Comment> TGetAllList()
         {
             return _commentDal.GetListAll();
         }
@@ -45,6 +51,7 @@ namespace Blogy.BusinessLayer.Concrete
         public void TRemove(int id)
         {
             _commentDal.Remove(id);
+            _uowDal.Save();
         }
 
         public void TUpdate(Comment entity)

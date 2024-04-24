@@ -18,7 +18,8 @@
 							<th>Ad Soyad</th>
 							<th>Email</th>
 							<th>Kullanıcı Adı</th>
-							<th>Blokla</th>
+							<th>Bloglar</th>
+							<th>Yorumlar</th>
 							<th>Rol Ata</th>
 						</tr>
 					</thead>
@@ -30,8 +31,9 @@
 								<td><img src="~/UserImage/@item.ImageUrl" class="img-thumbnail rounded-pill"/> @item.Name @item.Surname</td>
 								<td>@item.Email</td>
 								<td>@item.UserName</td>
-								<td><a href="/Admin/Categories/RemoveCategory/@item.Id" class="btn btn-outline-danger">Blokla</a></td>
-								<td><a href="/Admin/Categories/RemoveCategory/@item.Id" class="btn btn-outline-info">Rol Ata</a></td>
+								<td><a href="/Admin/Users/UserBlogs/@item.Id" class="btn btn-outline-success">Bloglar</a></td>
+								<td><a href="/Admin/Users/UserComments/@item.Id" class="btn btn-outline-secondary">Yorumlar</a></td>
+								<td><a href="/Admin/Users/AddRole/@item.Id" class="btn btn-outline-info">Rol Ata</a></td>
 							</tr>
 						}
 					</tbody>

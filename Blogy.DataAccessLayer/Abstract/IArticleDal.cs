@@ -16,6 +16,7 @@ namespace Blogy.DataAccessLayer.Abstract
         List<Article> CategoryGameLast3Article();
         List<Article> CategoryFilmLast3Article();
         List<Article> CategoryHealthLast3Article();
+        List<Article> GetArticleListByUserId(int userId);
         List<Article> LastPostList();
         Article GetArticleByIdWithCategoryAndUser(int id);
     }

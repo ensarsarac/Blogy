@@ -19,7 +19,12 @@ namespace Blogy.DataAccessLayer.EntityFramework
             _context = context;
         }
 
-        public List<Comment> GetCommentListWithUser(int id)
+		public List<Comment> CommentListByUserId(int userId)
+		{
+            return _context.Comments.Where(x => x.AppUserID == userId).Include(x=>x.Article).Include(x=>x.AppUser).OrderByDescending(x => x.CommentDate).ToList();
+		}
+
+		public List<Comment> GetCommentListWithUser(int id)
         {
             var values = _context.Comments.Where(x => x.ArticleID == id).Include(y => y.AppUser).ToList();
             return values;

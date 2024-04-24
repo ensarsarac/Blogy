@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Blogy.BusinessLayer.Abstract
 {
-    public interface ICommentService:IGenericUowService<Comment>
+    public interface IAppRoleService:IGenericService<AppRole>
     {
-        List<Comment> TGetCommentListWithUser(int id);
-		List<Comment> TCommentListByUserId(int userId);
-	}
+    }
 }

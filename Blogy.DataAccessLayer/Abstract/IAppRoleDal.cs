@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Blogy.DataAccessLayer.Abstract
 {
-    public interface ICommentDal:IGenericUowDal<Comment>
+    public interface IAppRoleDal:IGenericDal<AppRole>
     {
-        List<Comment> GetCommentListWithUser(int id);
-        List<Comment> CommentListByUserId(int userId);
     }
 }

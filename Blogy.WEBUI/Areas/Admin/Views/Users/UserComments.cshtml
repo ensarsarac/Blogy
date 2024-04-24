@@ -1,0 +1,46 @@
+﻿@model List<CommentListByUserIdDto>
+@{
+    ViewData["Title"] = "UserComments";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Kullanıcı Yorumları</h4>
+				<p class="card-description">
+					Kullanıcı Yorumları ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Kullanıcı</th>
+							<th>Blog Başlık</th>
+							<th>Yorum</th>
+							<th>Tarih</th>
+							<th>Sil</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td><img src="~/UserImage/@item.UserImageUrl" /> @item.UserNameSurname</td>
+								<td>@item.ArticleTitle</td>
+								<td>@item.Content</td>
+								<td>@item.Date.ToShortDateString()</td>
+								<td><a href="/Admin/Users/RemoveComment/@item.CommentId" class="btn btn-outline-danger">Sil</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -16,7 +16,8 @@ namespace Blogy.BusinessLayer.Abstract
         List<Article> TCategoryGameLast3Article();
         List<Article> TCategoryFilmLast3Article();
         List<Article> TCategoryHealthLast3Article();
-        List<Article> TLastPostList();
+        List<Article> TGetArticleListByUserId(int userId);
+		List<Article> TLastPostList();
         Article TGetArticleByIdWithCategoryAndUser(int id);
     }
 }

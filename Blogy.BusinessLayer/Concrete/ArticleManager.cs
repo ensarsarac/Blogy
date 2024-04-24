@@ -58,7 +58,12 @@ namespace Blogy.BusinessLayer.Concrete
             return _articleDal.GetArticleByIdWithCategoryAndUser(id);
         }
 
-        public List<Article> TGetBlogListWithCategory()
+		public List<Article> TGetArticleListByUserId(int userId)
+		{
+            return _articleDal.GetArticleListByUserId(userId);
+		}
+
+		public List<Article> TGetBlogListWithCategory()
         {
             return _articleDal.GetBlogListWithCategory();
         }

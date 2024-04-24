@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Blogy.DTOLayer.AboutDtos;
+using Blogy.DTOLayer.AppRoleDtos;
 using Blogy.DTOLayer.AppUserDtos;
 using Blogy.DTOLayer.ArticleDtos;
 using Blogy.DTOLayer.CategoryDtos;
@@ -44,6 +45,10 @@ namespace Blogy.BusinessLayer.Mapping
             CreateMap<UpdateAboutDto, About>().ReverseMap();
 
             CreateMap<ResultAppUserDto, AppUser>().ReverseMap();
+
+            CreateMap<CreateAppRoleDto, AppRole>().ReverseMap();
+            CreateMap<ResultAppRoleDto, AppRole>().ReverseMap();
+            CreateMap<UpdateAppRoleDto, AppRole>().ReverseMap();
         }
     }
 }

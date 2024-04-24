@@ -38,6 +38,8 @@ namespace Blogy.BusinessLayer.Container
 			services.AddScoped<ISocialMediaService,SocialMediaManager>();
 			services.AddScoped<IAppUserDal,EfAppUserRepository>();
 			services.AddScoped<IAppUserService,AppUserManager>();
+			services.AddScoped<IAppRoleDal,EfAppRoleRepository>();
+			services.AddScoped<IAppRoleService,AppRoleManager>();
 
 			services.AddControllersWithViews().AddFluentValidation(opt =>
 			{

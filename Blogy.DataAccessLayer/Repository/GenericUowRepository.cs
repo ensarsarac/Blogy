@@ -34,7 +34,8 @@ namespace Blogy.DataAccessLayer.Repository
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var value = _context.Set<T>().Find(id);
+            _context.Set<T>().Remove(value);
         }
 
         public void Update(T entity)

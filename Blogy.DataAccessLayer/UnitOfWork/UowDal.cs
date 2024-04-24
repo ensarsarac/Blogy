@@ -16,7 +16,8 @@ namespace Blogy.DataAccessLayer.UnitOfWork
             _context = context;
         }
 
-        public void Save()
+
+		public void Save()
         {
             _context.SaveChanges();
         }

@@ -61,7 +61,13 @@ namespace Blogy.DataAccessLayer.EntityFramework
             return values;
         }
 
-        public List<Article> GetBlogListWithCategory()
+		public List<Article> GetArticleListByUserId(int userId)
+		{
+            var values = _context.Articles.Where(x => x.AppUserID == userId).Include(x => x.Category).Include(x=>x.AppUser).OrderByDescending(x => x.CreatedDate).ToList();
+            return values;
+		}
+
+		public List<Article> GetBlogListWithCategory()
         {
             var values = _context.Articles.Include(x => x.Category).OrderByDescending(x=>x.CreatedDate).ToList();
             return values;
