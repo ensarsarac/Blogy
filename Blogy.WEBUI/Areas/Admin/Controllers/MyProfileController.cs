@@ -3,12 +3,14 @@ using Blogy.DTOLayer.AppUserDtos;
 using Blogy.EntityLayer.Concrete;
 using Blogy.WEBUI.Models;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class MyProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

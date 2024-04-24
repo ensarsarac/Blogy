@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Controllers
 {
+    [AllowAnonymous]
     public class ErrorPageController : Controller
     {
         public IActionResult NotFound404()
+        {
+            return View();
+        }
+        public IActionResult AccessDenied()
         {
             return View();
         }

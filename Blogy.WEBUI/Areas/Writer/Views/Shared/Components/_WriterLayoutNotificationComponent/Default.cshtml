@@ -1,0 +1,30 @@
+﻿@model List<GetNotificationDto>
+
+<li class="nav-item dropdown">
+    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+        <i class="mdi mdi-bell-outline"></i>
+        <span class="count count-varient1">@Model.Count()</span>
+    </a>
+    <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="notificationDropdown">
+        <h6 class="p-3 mb-0">Bildirimler</h6>
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-@item.Color">@item.Title</span>
+                    @if(item.Description.Length < 50)
+                    {
+                        <p class="text-small text-muted ellipsis mb-0"> @item.Description </p>
+                    }
+                    else
+                    {
+                        <p class="text-small text-muted ellipsis mb-0"> @item.Description.Substring(0,50) </p>
+                    }
+                </div>
+                <p class="text-small text-muted align-self-start"> Date</p>
+            </a>
+        }
+        
+        <div class="dropdown-divider"></div>
+    </div>
+</li>

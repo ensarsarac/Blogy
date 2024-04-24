@@ -2,12 +2,14 @@
 using Blogy.DataAccessLayer.UnitOfWork;
 using Blogy.DTOLayer.CommentDtos;
 using Blogy.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Blogy.WEBUI.Controllers
 {
+    [AllowAnonymous]
     public class CommentController : Controller
     {
 

@@ -4,6 +4,7 @@ using Blogy.DataAccessLayer.UnitOfWork;
 using Blogy.DTOLayer.ArticleDtos;
 using Blogy.DTOLayer.CommentDtos;
 using Blogy.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,7 +12,8 @@ using X.PagedList;
 
 namespace Blogy.WEBUI.Controllers
 {
-	public class BlogsController : Controller
+    [AllowAnonymous]
+    public class BlogsController : Controller
 	{
 		private readonly IArticleService _articleService;
 		private readonly ICommentService _commentService;
@@ -26,20 +28,37 @@ namespace Blogy.WEBUI.Controllers
             _uowDal = uowDal;
         }
 
-        public IActionResult Index(int page=1,int pageSize=6)
+        public IActionResult Index(string? search,int page=1,int pageSize=6)
 		{
-			var values = _articleService.TGetBlogListWithCategory();
-			var result = values.Select(x => new GetArticleBlogPageDto()
+			if (!string.IsNullOrEmpty(search))
 			{
-				CategoryName = x.Category.Name,
-				Content = x.Content,
-				Date = x.CreatedDate,
-				Id = x.ArticleID,
-				ImageUrl = x.CoverImageUrl,
-				Title = x.Title,
-
-			}).ToList().ToPagedList(page,pageSize);
-			return View(result);
+                var values = _articleService.TGetArticleListWithCategoryByFilter(search);
+                var result = values.Select(x => new GetArticleBlogPageDto()
+                {
+                    CategoryName = x.Category.Name,
+                    Content = x.Content,
+                    Date = x.CreatedDate,
+                    Id = x.ArticleID,
+                    ImageUrl = x.CoverImageUrl,
+                    Title = x.Title,
+                }).ToList().ToPagedList(page, pageSize);
+                return View(result);
+			}
+			else
+			{
+                var values = _articleService.TGetBlogListWithCategory();
+                var result = values.Select(x => new GetArticleBlogPageDto()
+                {
+                    CategoryName = x.Category.Name,
+                    Content = x.Content,
+                    Date = x.CreatedDate,
+                    Id = x.ArticleID,
+                    ImageUrl = x.CoverImageUrl,
+                    Title = x.Title,
+                }).ToList().ToPagedList(page, pageSize);
+                return View(result);
+            }
+			
 		}
 		
 		public IActionResult BlogDetails(int id)

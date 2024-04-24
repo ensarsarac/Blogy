@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using Blogy.BusinessLayer.Abstract;
 using Blogy.DTOLayer.SendMessageDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Areas.Admin.Controllers
 {
 	[Area("Admin")]
-	public class SendMessageController : Controller
+    [Authorize(Roles = "Admin")]
+    public class SendMessageController : Controller
 	{
 		private readonly ISendMessageService _sendService;
 		private readonly IMapper _mapper;

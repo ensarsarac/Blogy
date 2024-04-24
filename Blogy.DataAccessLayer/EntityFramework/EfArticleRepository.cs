@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,7 +68,13 @@ namespace Blogy.DataAccessLayer.EntityFramework
             return values;
 		}
 
-		public List<Article> GetBlogListWithCategory()
+        public List<Article> GetArticleListWithCategoryByFilter(string search)
+        {
+            var values = _context.Articles.Where(x => x.Title.Contains(search)).Include(x=>x.Category).ToList();
+            return values;
+        }
+
+        public List<Article> GetBlogListWithCategory()
         {
             var values = _context.Articles.Include(x => x.Category).OrderByDescending(x=>x.CreatedDate).ToList();
             return values;

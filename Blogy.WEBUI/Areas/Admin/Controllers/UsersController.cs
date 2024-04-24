@@ -5,12 +5,14 @@ using Blogy.DTOLayer.ArticleDtos;
 using Blogy.DTOLayer.CommentDtos;
 using Blogy.EntityLayer.Concrete;
 using Blogy.WEBUI.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly IAppUserService _userService;

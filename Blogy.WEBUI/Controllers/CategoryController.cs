@@ -2,11 +2,14 @@
 using Blogy.DataAccessLayer.Abstract;
 using Blogy.DTOLayer.CategoryDtos;
 using Blogy.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
 
 namespace Blogy.WEBUI.Controllers
 {
+    [AllowAnonymous]
+
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;

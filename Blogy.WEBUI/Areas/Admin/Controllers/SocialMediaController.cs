@@ -5,11 +5,13 @@ using Blogy.DTOLayer.SocialMediaDtos;
 using Blogy.EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class SocialMediaController : Controller
     {
         private readonly ISocialMediaService _socialMediaService;

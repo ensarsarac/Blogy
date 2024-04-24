@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,5 +20,6 @@ namespace Blogy.DataAccessLayer.Abstract
         List<Article> GetArticleListByUserId(int userId);
         List<Article> LastPostList();
         Article GetArticleByIdWithCategoryAndUser(int id);
+        List<Article> GetArticleListWithCategoryByFilter(string search);
     }
 }

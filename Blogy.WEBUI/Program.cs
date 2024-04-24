@@ -24,10 +24,23 @@ builder.Services.OtherDependencyContainer();
 //Dependency Injection
 builder.Services.AddServices();
 
+builder.Services.AddMvc(opt =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+});
+
 builder.Services.AddControllersWithViews().AddFluentValidation(opt =>
 {
     opt.DisableDataAnnotationsValidation = true;
     opt.ValidatorOptions.LanguageManager.Culture = new CultureInfo("tr");
+});
+
+builder.Services.ConfigureApplicationCookie(opt =>
+{
+    opt.LoginPath = "/Login/Index";
+    opt.LogoutPath = "/Login/Index";
+    opt.AccessDeniedPath = "/ErrorPage/AccessDenied";
 });
 
 
@@ -41,7 +54,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-//app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404/");
+app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404/");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
@@ -56,6 +69,6 @@ app.UseEndpoints(endpoints =>
 });
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();

@@ -4,11 +4,13 @@ using Blogy.BusinessLayer.ValidationRules.SendMessageValidator;
 using Blogy.DTOLayer.SendMessageDtos;
 using Blogy.EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Controllers
 {
-	public class ContactController : Controller
+    [AllowAnonymous]
+    public class ContactController : Controller
 	{
 		private readonly ISendMessageService _messageService;
 		private readonly IMapper _mapper;

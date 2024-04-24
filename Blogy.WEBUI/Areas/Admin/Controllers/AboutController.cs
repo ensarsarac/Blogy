@@ -5,11 +5,13 @@ using Blogy.DTOLayer.AboutDtos;
 using Blogy.DTOLayer.CategoryDtos;
 using Blogy.EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize(Roles ="Admin")]
 	public class AboutController : Controller
 	{
 		private readonly IAboutService _aboutService;

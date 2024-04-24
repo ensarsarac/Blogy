@@ -27,7 +27,16 @@
 							@if (User.Identity.IsAuthenticated)
 							{
 								<li><a href="/Login/LogOut">Çıkış Yap</a></li>
-								<li><a href="/Admin/Dashboard">Panele Git</a></li>
+								@if(User.IsInRole("Admin"))
+								{
+									<li><a href="/Admin/Dashboard/Index">Panele Git</a></li>
+								}
+								else if (User.IsInRole("Writer"))
+								{
+									<li><a href="/Writer/Default/Index">Panele Git</a></li>
+
+								}
+
 							}
 							else
 							{
@@ -40,8 +49,8 @@
 						<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
 							<span></span>
 						</a>
-						<form action="#" class="search-form d-none d-lg-inline-block">
-							<input type="text" class="form-control" placeholder="Aranacak kelime...">
+						<form action="/Blogs/Index" method="get" class="search-form d-none d-lg-inline-block">
+							<input type="text" class="form-control" name="search" placeholder="Aranacak kelime...">
 							<span class="bi-search"></span>
 						</form>
 					</div>

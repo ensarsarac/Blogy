@@ -1,11 +1,13 @@
 ﻿using Blogy.DTOLayer.ForgetPasswordDtos;
 using Blogy.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 
 namespace Blogy.WEBUI.Controllers
 {
+    [AllowAnonymous]
     public class ForgetPasswordController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

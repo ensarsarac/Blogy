@@ -42,6 +42,8 @@ namespace Blogy.BusinessLayer.Container
 			services.AddScoped<IAppRoleService,AppRoleManager>();
 			services.AddScoped<IMessageService,MessageManager>();
 			services.AddScoped<IMessageDal,EfMessageRepository>();
+			services.AddScoped<INotificationService,NotificationManager>();
+			services.AddScoped<INotificationDal,EfNotificationRepository>();
 
 			services.AddControllersWithViews().AddFluentValidation(opt =>
 			{

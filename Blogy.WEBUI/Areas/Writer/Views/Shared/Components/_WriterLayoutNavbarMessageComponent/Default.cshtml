@@ -8,25 +8,24 @@
         <h6 class="p-3 mb-0">Mesajlar</h6>
         @foreach (var item in Model)
         {
+            
             <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow">
-                    <div class="d-flex align-items-center">
-                        <img src="~/UserImage/@item.SenderUserImageUrl" style="width:30px; height:30px;" class="rounded-pill img-thumbnail" />
-                        <span class="badge badge-pill badge-success">@item.SenderUserName</span>
-
-                    </div>
-
-                    
-                    @if(item.Detail.Length < 50)
-                    {
-                        <p class="text-small text-muted ellipsis mb-0"> @item.Detail </p>
-                    }
-                    else
-                    {
-                        <p class="text-small text-muted ellipsis mb-0"> @item.Detail.Substring(0,50) </p>
-                    }
+                <div class="preview-thumbnail">
+                    <img src="~/UserImage/@item.SenderUserImageUrl" alt="" class="profile-pic" />
                 </div>
-                <p class="text-small text-muted align-self-start"> @item.Date.ToShortDateString() </p>
+                <div class="preview-item-content">
+                    <p class="mb-0">
+                        @item.SenderUserName 
+                        @if (item.Detail.Length < 50)
+                        {
+                            <span class="text-small text-muted">@item.Detail</span>
+                        }
+                        else
+                        {
+                            <span class="text-small text-muted">@item.Detail.Substring(0,50)</span>
+                        }
+                    </p>
+                </div>
             </a>
         }
         

@@ -4,12 +4,14 @@ using Blogy.BusinessLayer.ValidationRules.ContactValidator;
 using Blogy.DTOLayer.ContactDtos;
 using Blogy.EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Areas.Admin.Controllers
 {
 	[Area("Admin")]
-	public class ContactController : Controller
+    [Authorize(Roles = "Admin")]
+    public class ContactController : Controller
 	{
 		private readonly IContactService _contactService;
 		private readonly IMapper _mapper;

@@ -12,6 +12,7 @@ using MimeKit;
 
 namespace Blogy.WEBUI.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

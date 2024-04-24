@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-danger card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Blog Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.blogCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-info card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Kullanıcı Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.userCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-secondary card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Yorum Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.categoryCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-success card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Mesaj Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.messageCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-success card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    En Çok Yorum Alan Blog<i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h6 class="mb-5">@ViewBag.maxBlogComment.Key</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-info card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    En Çok Yorum Alan Blog Yorum Sayısı<i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.maxBlogComment.Count</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-secondary card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    En Çok Kullanılan Kategori <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h4 class="mb-5">@ViewBag.maxBlogCategory.Key</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-success card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    En Çok Kullanılan Kategori Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.maxBlogCategory.Count</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-danger card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    En Aktif Kullanıcı<i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.maxShareBlogUser.Key</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-info card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Aktif Kullanıcı Blog Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.maxShareBlogUser.Count</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-secondary card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Sosyal Medya Sayısı<i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.socialMediaCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-success card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Bildirim Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.notificationCount</h2>
+            </div>
+        </div>
+    </div>
+</div>

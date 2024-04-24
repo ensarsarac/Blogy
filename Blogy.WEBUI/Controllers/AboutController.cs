@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Blogy.BusinessLayer.Abstract;
 using Blogy.DTOLayer.AboutDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WEBUI.Controllers
 {
+	[AllowAnonymous]
 	public class AboutController : Controller
 	{
 		private readonly IAboutService _aboutService;

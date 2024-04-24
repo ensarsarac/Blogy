@@ -1,10 +1,9 @@
-﻿@model List<GetArticleByUserIdDto>
+﻿@model List<ResultCommentDto>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "BlogComments";
     Layout = "~/Areas/Writer/Views/Shared/_WriterLayout.cshtml";
     int count = 0;
 }
-
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -15,12 +14,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Blog Adı</th>
-                                <th>Kategori</th>
+                                <th>Kullanıcı</th>
                                 <th>Tarih</th>
-                                <th>Sil</th>
-                                <th>Güncelle</th>
-                                <th>Yorumlar</th>
+                                <th>Yorum</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,21 +25,17 @@
                                 count++;
                                 <tr>
                                     <td>@count</td>
-                                    <td>@item.Title</td>
-                                    <td>@item.CategoryName</td>
+                                    <td>@item.UserNameSurname</td>
                                     <td>@item.Date.ToShortDateString()</td>
-                                    <td><a href="#" class="btn btn-outline-danger btn-fw">Sil</a></td>
-                                    <td><a href="#" class="btn btn-outline-warning btn-fw">Güncelle</a></td>
-                                    <td><a href="/Writer/MyBlogs/BlogComments/@item.ArticleId" class="btn btn-outline-info btn-fw">Yorumlar</a></td>
+                                    <td>@item.Message</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="#" class="btn btn-outline-success btn-fw">Yeni Blog Oluştur</a>
                 </div>
             </div>
         </div>
     </div>
-    
+
 </div>
 
