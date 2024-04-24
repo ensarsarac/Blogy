@@ -27,6 +27,8 @@ namespace Blogy.DataAccessLayer.Context
                 .WithMany(y => y.ReceiverUsers)
                 .HasForeignKey(z => z.ReceiverUserId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            base.OnModelCreating(builder);
         }
 
 
