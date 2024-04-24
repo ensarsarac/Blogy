@@ -16,9 +16,21 @@ namespace Blogy.DataAccessLayer.Context
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-JI387RJ\\SQLEXPRESS;initial catalog=BlogyDb;integrated security=true");
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Message>().HasOne(x => x.SenderUser)
+                .WithMany(y => y.SenderUsers)
+                .HasForeignKey(z => z.SenderUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.Entity<Message>().HasOne(x => x.ReceiverUser)
+                .WithMany(y => y.ReceiverUsers)
+                .HasForeignKey(z => z.ReceiverUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        }
 
 
-		public DbSet<Category> Categories{ get; set; }
+        public DbSet<Category> Categories{ get; set; }
         public DbSet<Article> Articles{ get; set; }
         public DbSet<Comment> Comments{ get; set; }
         public DbSet<Tag> Tags{ get; set; }
@@ -26,5 +38,6 @@ namespace Blogy.DataAccessLayer.Context
         public DbSet<SendMessage> SendMessages{ get; set; }
         public DbSet<About> Abouts{ get; set; }
         public DbSet<SocialMedia> SocialMedias{ get; set; }
+        public DbSet<Message> Messages{ get; set; }
     }
 }

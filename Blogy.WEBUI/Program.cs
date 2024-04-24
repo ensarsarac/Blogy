@@ -24,7 +24,6 @@ builder.Services.OtherDependencyContainer();
 //Dependency Injection
 builder.Services.AddServices();
 
-
 builder.Services.AddControllersWithViews().AddFluentValidation(opt =>
 {
     opt.DisableDataAnnotationsValidation = true;

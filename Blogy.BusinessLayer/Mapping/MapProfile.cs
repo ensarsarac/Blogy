@@ -35,6 +35,7 @@ namespace Blogy.BusinessLayer.Mapping
             CreateMap<UpdateContactDto, ContactInfo>().ReverseMap();
             
             CreateMap<Last3BlogDto, Article>().ReverseMap();
+            CreateMap<GetArticleByUserIdDto, Article>().ReverseMap();
 
             CreateMap<ResultSocialMediaDto, SocialMedia>().ReverseMap();
             CreateMap<UpdateSocialMediaDto, SocialMedia>().ReverseMap();
