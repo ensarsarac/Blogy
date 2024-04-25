@@ -1,11 +1,12 @@
-﻿@model List<GetMessatListDto>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@model List<GetMessatListDto>
 <li class="nav-item dropdown d-none d-sm-flex">
     <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown">
         <i class="mdi mdi-email-outline"></i>
         <span class="count count-varient2">@ViewBag.messagecount</span>
     </a>
     <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
-        <h6 class="p-3 mb-0">Mesajlar</h6>
+        <h6 class="p-3 mb-0">@localizer["Mesajlar"]</h6>
         @foreach (var item in Model)
         {
             

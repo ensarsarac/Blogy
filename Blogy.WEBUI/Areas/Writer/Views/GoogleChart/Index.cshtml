@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Writer/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result Visualization</title>
+</head>
+<body>
+    <div class="w-100 h-100" id="Piechart_div"></div>
+
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawLoad);
+        function drawLoad() {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '/Writer/GoogleChart/Chart/',
+                    success: function (result) {
+                        var Data = result.jsonlist;
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', "name");
+                        data.addColumn('number', "count");
+
+                        for (var i = 0; i < Data.length; i++) {
+                            data.addRow([Data[i].name, Data[i].count]);
+                        }
+                        var chart = new google.visualization.PieChart(document.getElementById('Piechart_div'));
+                        chart.draw(data, {
+                            title:"Bloglarda ki Kategori Sayısı",
+                            fontsize:"16px",
+                        })
+                    }
+                });
+            });
+        }
+
+    </script>
+</body>
+</html>

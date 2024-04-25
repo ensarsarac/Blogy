@@ -11,6 +11,7 @@ using Blogy.WEBUI.Models;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,15 @@ builder.Services.IdentityDependencyContainer(builder.Configuration);
 builder.Services.OtherDependencyContainer();
 //Dependency Injection
 builder.Services.AddServices();
+
+builder.Services.AddLocalization(opt =>
+{
+    opt.ResourcesPath = "Resources";
+});
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+var supertedCultures = new[] { "en", "fr", "tr", "de" };
+var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supertedCultures[2]).AddSupportedCultures(supertedCultures).AddSupportedUICultures(supertedCultures);
+
 
 builder.Services.AddMvc(opt =>
 {
@@ -54,6 +64,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseRequestLocalization(localizationOptions);
 app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404/");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
