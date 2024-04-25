@@ -10,6 +10,8 @@
   <li>Identity</li>
   <li>PagedList</li>
   <li>AutoMapper</li>
+  <li>RapidApi</li>
+  <li>Google Chart</li>
   <li>Html</li>
   <li>Css</li>
   <li>JavaScript</li>
@@ -26,6 +28,11 @@
   <li>Blog paylaşabilme</li>
   <li>Yorum yapabilme</li>
   <li>Validation</li>
+  <li>Hava Durumu apisinden bilgi çekme</li>
+  <li>Writer paneli</li>
+  <li>Rollere göre erişim izinleri</li>
+  <li>Çoklu Dil Desteği</li>
+  <li>Google Chart ile dinamik veri gösterme</li>
 </ul>
 
 <h3>Teknik Özellikler</h3>
