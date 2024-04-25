@@ -1,0 +1,45 @@
+﻿@model List<GetMessatListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Writer/Views/Shared/_WriterLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Mesajlar</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Gönderen</th>
+                                <th>Konu</th>
+                                <th>Mesaj</th>
+                                <th>Tarih</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td><img src="~/UserImage/@item.SenderUserImageUrl" style="width:30px;height:30px;" class="rounded-pill img-thumbnail" /> @item.SenderUserName</td>
+                                    <td>@item.Subject</td>
+                                    <td>@item.Detail</td>
+                                    <td>@item.Date.ToShortDateString()</td>
+                                    <td><a href="/Writer/MyMessages/DeleteMessage/@item.MessageId" class="btn btn-outline-danger btn-fw">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

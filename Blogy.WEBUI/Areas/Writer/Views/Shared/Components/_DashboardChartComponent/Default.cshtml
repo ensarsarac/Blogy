@@ -1,0 +1,34 @@
+﻿
+
+    <div class="w-100 h-100" id="Piechart_div"></div>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawLoad);
+        function drawLoad() {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                url: '/Writer/MyDashboard/GetChart/',
+                    success: function (result) {
+                        var Data = result.jsonlist;
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', "blogname");
+                    data.addColumn('number', "commentcount");
+
+                        for (var i = 0; i < Data.length; i++) {
+                        data.addRow([Data[i].blogname, Data[i].commentcount]);
+                        }
+                        var chart = new google.visualization.PieChart(document.getElementById('Piechart_div'));
+                        chart.draw(data, {
+                            title: "Bloglarıma Yapılan Yorum Sayıları",
+                            fontsize: "16px",
+                        })
+                    }
+                });
+            });
+        }
+
+    </script>

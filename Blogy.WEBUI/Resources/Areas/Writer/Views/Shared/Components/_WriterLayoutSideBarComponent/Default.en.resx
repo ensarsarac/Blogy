@@ -129,6 +129,9 @@
   <data name="Grafik" xml:space="preserve">
     <value>Graphic</value>
   </data>
+  <data name="Mesajlar" xml:space="preserve">
+    <value>Messages</value>
+  </data>
   <data name="Yorumlarım" xml:space="preserve">
     <value>My Comments</value>
   </data>

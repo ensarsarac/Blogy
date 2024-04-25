@@ -1,0 +1,37 @@
+﻿@model List<GetArticleByUserIdDto>
+<div class="col-xl-8 col-sm-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body px-0 overflow-auto">
+            <h4 class="card-title pl-4">Bloglarıma Hızlı Bakış</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Blog Başlığı</th>
+                            <th>Kategori</th>
+                            <th>Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                               
+                                <td>@item.Title</td>
+                                <td>@item.CategoryName</td>
+                                <td>@item.Date.ToShortDateString()</td>
+                                
+                            </tr>
+                        }           
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+            <a class="text-black mt-3 d-block pl-4" href="/Writer/MyBlogs/Index">
+                <span class="font-weight-medium h6">Tüm Blog Detaylarını Gör</span>
+                <i class="mdi mdi-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
