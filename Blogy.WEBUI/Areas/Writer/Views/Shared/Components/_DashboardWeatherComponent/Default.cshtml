@@ -1,0 +1,43 @@
+﻿@model Blogy.WEBUI.Areas.Writer.Models.WeatherApiViewModel
+<div class="row">
+	<div class="col-xl-12 grid-margin stretch-card">
+		<div class="card card-calender">
+			<div class="card-body">
+				<div class="row pt-4">
+					<div class="col-sm-6">
+						<h5 class="text-white">@Model.current.last_updated.Split(" ")[0]</h5>
+						
+						<div><img src="@Model.current.condition.icon" /></div>
+						<h5 class="text-white pt-2 m-0">Hissedilen Sıcaklık: @Model.current.feelslike_c</h5>
+						<h5 class="text-white m-0">Nem: @Model.current.humidity</h5>
+						<h5 class="text-white m-0">Rüzgar: @Model.current.wind_mph</h5>
+					</div>
+					<div class="col-sm-6 text-sm-right pt-3 pt-sm-0">
+						@if (Model.current.condition.text.ToString() == "Sunny")
+						{
+							<h3 class="text-white">Güneşli</h3>
+						}
+						<p class="text-white m-0">@Model.location.name</p>
+						<h3 class="text-white m-0">@Model.current.temp_c<span class="symbol">°c</span></h3>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-sm-12">
+						<ul class="d-flex pl-0 overflow-auto">
+							@foreach (var item in Model.forecast.forecastday)
+							{
+								<li class="weakly-weather-item text-white font-weight-medium text-center">
+									<p class="mb-0">@item.date</p>
+									<img src="@item.day.condition.icon" />
+									<p class="mb-0">@item.day.maxtemp_c<span class="symbol">°c</span></p>
+								</li>
+							}
+							
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

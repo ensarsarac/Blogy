@@ -1,0 +1,15 @@
+﻿@model Blogy.WEBUI.Areas.Writer.Models.WeatherApiViewModel
+@{
+    ViewData["Title"] = "GetWeather";
+    Layout = "~/Areas/Writer/Views/Shared/_WriterLayout.cshtml";
+    int count = 0;
+}
+
+<p>@Model.current.humidity</p>   
+<p>@Model.current.temp_c</p>   
+<p>@Model.current.condition.text</p>
+<img src="@Model.current.condition.icon" />
+<p>@Model.location.name</p>
+<p>@Model.location.localtime</p>
+
+<p>@Model.forecast.forecastday[1].day.maxtemp_c</p>
