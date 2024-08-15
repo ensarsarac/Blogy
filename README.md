@@ -44,6 +44,7 @@
   <li>Dependency Injection</li>
 </ul>
 
+
 <img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/d83bf6a0-47ce-44ae-ac32-20a3f5956ab3"/>
 <img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/25f7f5bc-9c4c-47df-8444-bded1979b268" />
 <img src="https://github.com/ensarsarac/Blogy.WEBUI/assets/76907308/2be3adf0-de7e-48dd-a048-101b98e412d2" />
